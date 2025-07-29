@@ -5,6 +5,7 @@ import Box from '@/components/Box/Box'
 import ErrorMessage from '@/helpers/ErrorMessage'
 import SuccessMessage from '@/helpers/SuccessMessage'
 import Button from '@/components/Button/Button'
+import AnswerBox from '@/components/AnswerBox/AnswerBox'
 
 export default function Hexadecimal() {
   const [hexAddress, setHexAddress] = useState<string>('')
@@ -70,8 +71,10 @@ export default function Hexadecimal() {
           <Button label="Convert" onClick={handleConversion} disabled={!hexAddress} />
 
           <div className="w-full text-center mt-4" style={{ minHeight: '4rem' }}>
-            <SuccessMessage message={decimalNumber !== null ? `The decimal equivalent of ${lastValidHex} is ${decimalNumber}` : null} />
-            <ErrorMessage error={error} />
+            <AnswerBox>
+              <SuccessMessage message={decimalNumber !== null ? `The decimal equivalent of ${lastValidHex} is ${decimalNumber}` : null} />
+              <ErrorMessage error={error} />
+            </AnswerBox>
           </div>
         </div>
       </div>

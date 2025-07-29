@@ -24,7 +24,7 @@ config.autoAddCss = false
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang='en' className={montserrat.className}>
-      <body>
+      <body className="overflow-x-hidden overflow-y-auto">
         <Header />
         <main className="min-h-screen">
           {children}

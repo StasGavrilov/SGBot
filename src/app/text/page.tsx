@@ -7,6 +7,7 @@ import ErrorMessage from '@/helpers/ErrorMessage'
 import SuccessMessage from '@/helpers/SuccessMessage'
 import Select from '@/components/Select/Select'
 import { strings } from './strings'
+import AnswerBox from '@/components/AnswerBox/AnswerBox'
 
 export default function Strings() {
   const [inputText, setInputText] = useState<string>('')
@@ -21,7 +22,6 @@ export default function Strings() {
 
   useEffect(() => {
     if (!inputText.trim()) {
-      setError('Please enter your text.')
       setOutputText('')
       return
     }
@@ -82,8 +82,10 @@ export default function Strings() {
           </div>
 
           <div className='w-full text-center mt-4' style={{ minHeight: '4rem' }}>
-            <SuccessMessage message={outputText} />
-            <ErrorMessage error={error} />
+            <AnswerBox>
+              <SuccessMessage message={outputText?.toString()} />
+              <ErrorMessage error={error} />
+            </AnswerBox>
           </div>
         </div>
       </div>
